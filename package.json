@@ -1,0 +1,48 @@
+{
+  "name": "my-game-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "electron.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dev": "vite",
+    "build": "vite build",
+    "electron": "electron .",
+    "package": "electron-builder"
+  },
+  "dependencies": {
+    "vue": "^3.5.13",
+    "pixi.js": "^8.8.0"
+  },
+  "devDependencies": {
+    "electron": "^34.2.0",
+    "electron-builder": "^25.1.8",
+    "vite": "^6.1.0",
+    "@vitejs/plugin-vue": "^5.2.1"
+  },
+  "build": {
+    "appId": "com.example.mygame",
+    "productName": "MyGame",
+    "directories": {
+      "output": "dist_electron"
+    },
+    "files": [
+      "dist/**",
+      "electron.cjs",
+      "preload.cjs"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "public/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "public/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "public/icon.png"
+    }
+  }
+}
